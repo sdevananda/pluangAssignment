@@ -1,0 +1,23 @@
+As i didn't get any call for doubt clarification as requested, i have made some of the assumptions.
+   -> Order priority was concerned first with price, then time
+   -> order ids are auto generated values
+   -> As third API was to get orders submitted by user, i assumed the all orders as i haven't maintained any users table
+        and no track of which user submitted the order in the sample inputs
+
+1. Created API to submit order with the fields specified in specification file
+    Curl command for same
+    curl --location --request POST 'http://localhost:8080/api/v1/order' \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+        "orderType":"sell",
+        "name":"BTC",
+        "quantity":70,
+        "price":242.70
+    }'
+
+2. Written the transactions as soon as they happen into file transactions.txt
+3. Created another api to get the submitted orders
+    curl --location --request GET 'http://localhost:8080/api/v1/order' \
+    --data-raw ''
+
+Observation: For the orders given in input file, it looks two more transactions possible as we place last order
