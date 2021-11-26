@@ -26,8 +26,8 @@ public class OrderController {
         if(orderVo.getPrice()<=0){
             return "Price must be greater than zero";
         }
-        if(!orderVo.getOrderType().equals("sell") || !orderVo.getOrderType().equals("buy")){
-            throw new Exception("Order type is wrong");
+        if(!orderVo.getOrderType().equals("sell") && !orderVo.getOrderType().equals("buy")){
+            return "Order type is wrong";
         }
         return orderService.order(orderVo) ;
 
